@@ -224,7 +224,8 @@ Steps to start with a new ASP . NET CORE PROJECT
 6) start with creating repositories , all methods in a common repo
 7) then start with building services and later the controllers 
 8) use autoMapper if needed -> install AutoMapper and AutoMapper with DepedencyInjection and create a folder called Configurations and then create AutoMapperConfig
-9)
+9) once the repository is delcared with interface and its implementation , then initialize it 
+    in the program.cs file
 
 
 
