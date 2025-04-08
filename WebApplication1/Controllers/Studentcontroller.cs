@@ -29,6 +29,17 @@ namespace WebApplication1.Controllers
         public Studentcontrollers(ILogger<Studentcontrollers> logger, IStudentRepository studentRepository,IMapper mapper) // constructor of the Studentcontrollers
         {
             _logger = logger; 
+            /* logger is a special tool to record application behaviour and events like errors warnings and messages
+            LOG Levels in Logger => 1) Trace => detailed Logs
+            2) Debug => Debugging information during devlopment
+            3) Information => general Application flow info
+            4) wanring something unexpected 
+            5) Error failure in the application
+            6) critical serious error
+            
+            
+            
+            */
             _studentRepository = studentRepository;
             _mapper = mapper;
             _apiresponse = new ApiResponse();
@@ -398,3 +409,4 @@ namespace WebApplication1.Controllers
         }
         }
     }
+/* Content Negotiation is a feture which returns different return types , that is if the reponse needs to be in JSON -> or if the respnse needs to be in XML*/
