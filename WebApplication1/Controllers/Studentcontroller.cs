@@ -97,6 +97,7 @@ namespace WebApplication1.Controllers
                 // the above method is not preferred due to more code, 
                 // we can get the same repsonse if we add apicontroller and 
                 var students = await _studentRepository.GetAllAsync();
+                // performs mapping with the List of Students
                 _apiresponse.data = _mapper.Map<List<Student>>(students);
                 _apiresponse.Status = true;
                 _apiresponse.StatusCode = HttpStatusCode.OK;
@@ -367,7 +368,7 @@ namespace WebApplication1.Controllers
                 // below two lines are Db lines that are included in the repository
                 //_dbContext.Students.Update(existingStudent);
                 //await _dbContext.SaveChangesAsync();
-                await _studentRepository.UpdateAsync(existingStudent);
+                await _studentRepository.UpdateAsync(existingStudent); // we need to update this if not it will lose the track of the data and need to use useNoTracking
                 return NoContent();
             }
             catch (Exception ex)
