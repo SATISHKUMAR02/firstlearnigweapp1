@@ -26,8 +26,10 @@ namespace WebApplication1.Controllers
             _userService = userService;
         }
         [HttpPost] // POST method
-        [Route("CreateUser")]
-        [ProducesResponseType(201)]
+        [Route("CreateUser")] 
+        // these are responsible for preventing undocumented printing in the Swagger Ui ,
+        // also for showing the different responses 
+        [ProducesResponseType(201)] 
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(403)]
@@ -52,7 +54,7 @@ namespace WebApplication1.Controllers
         }
         [HttpGet] // Get all users
         [Route("GetAllUsers")]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(403)]
