@@ -213,3 +213,15 @@ app.UseEndpoints(endpoints =>
 //app.MapControllers(); this s the middle ware used for attribute 
 // based routing+
 app.Run();
+/*
+Steps to start with a new ASP . NET CORE PROJECT 
+1) install all the EFC packages design , tools , sqlServer
+2) create all the tables from the database and perform database first approach 
+3) mention the connection string in appsettings.json file and configure it in program.cs file 
+4) for performing patch operation install the packages mentioned in the student controller
+5) if performing code first approach - > create classed -> create a common DbContext and then connect it with a SqlServer database using the connection string
+6) start with creating repositories , all methods in a common repo
+7) then start with building services and later the controllers 
+
+
+*/
