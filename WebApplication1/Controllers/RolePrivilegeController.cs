@@ -15,7 +15,12 @@ namespace WebApplication1.Controllers
         private readonly IMapper _mapper;
         private readonly ICollegeRepository<RolePrivilege> _rolePrivilegeRepository;
         private ApiResponse _apiResponse;
-        public RolePrivilegeController(IMapper mapper, ICollegeRepository<RolePrivilege> rolePrivilegeRepository)
+        public RolePrivilegeController(IMapper mapper, ICollegeRepository<RolePrivilege> rolePrivilegeRepository) 
+        // the above code is inherting ICollegeRepository and giving to all the RolePrivileges Repository 
+        // so we create a common repository for all the functions and then inherit the same and use it differently
+        
+        
+        
         {
             _mapper = mapper;
             _rolePrivilegeRepository = rolePrivilegeRepository;
