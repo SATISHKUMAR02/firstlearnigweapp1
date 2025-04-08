@@ -19,4 +19,8 @@ namespace WebApplication1.Data.Repository
         Task<bool> DeleteAsync(T dbRecord);
     }
 }
-/// this is the common repository for this college project
+/// this is the common repository for this college project for this each controller present in the application
+
+// application -> Linq ->  (EFC) SQL Queries -> from database get data accoringly -> data converted to C# objects  -> C# objects used in the application
+
+
