@@ -222,6 +222,7 @@ Steps to start with a new ASP . NET CORE PROJECT
 5) if performing code first approach - > create classed -> create a common DbContext and then connect it with a SqlServer database using the connection string
 6) start with creating repositories , all methods in a common repo
 7) then start with building services and later the controllers 
+8) use autoMapper if needed
 
 
 */
