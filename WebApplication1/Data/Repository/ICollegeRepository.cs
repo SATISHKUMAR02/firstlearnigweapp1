@@ -23,5 +23,18 @@ namespace WebApplication1.Data.Repository
 /// this is the common repository for this college project for this each controller present in the application
 
 // application -> Linq ->  (EFC) SQL Queries -> from database get data accoringly -> data converted to C# objects  -> C# objects used in the application
+    /*        Repository pattern ========================================================================================================================== important
+    this is a way of abstraction in the layer where the controller will not perform database related operations , rather it will be done by the Repository which 
+    will be talking to the database
+
+    so instead of creating multiple repositories for each controller , we will be creating a common repo for the enitre application consiting of all the operations 
+    like get post delete put , and these repository actions will be used by all the controllers which can perform all sorts of actions
+
+    
+
+
+
+
+*/
 
 
