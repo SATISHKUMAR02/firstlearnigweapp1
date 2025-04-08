@@ -20,6 +20,8 @@ builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 
 // Add services to the container.
+// we need to mention the DBcontext that is being used by the application 
+// without these the application won't work  ============================================================================== important
 builder.Services.AddDbContext<CollegeDbContext>(options =>
 {                                                                                 
     options.UseSqlServer(builder.Configuration.GetConnectionString("CollegeAppDbConnection"));
