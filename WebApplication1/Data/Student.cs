@@ -7,10 +7,12 @@ namespace WebApplication1.Data
     {
         //[Key] // this acts as a primary key
        // [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // auto generated 
+        
         public int Id { get; set; } 
-
+        
+        [Required] // mentioning that it is required
         public string StudentName { get; set; }
-
+        [EmailAddress] // accepts only proper email Address
         public string Email { get; set; }
 
         public string Address { get; set; }
