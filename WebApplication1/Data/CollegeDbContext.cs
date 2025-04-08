@@ -45,7 +45,15 @@ namespace WebApplication1.Data
             
 
         
+protected override void OnModelCreating(ModelBuilder modelbuilder){
+            modelbuilder.Entity<Student>().hasData(new List<Student>(){
+                new Student {
 
+                this is how we can add some data from the code first approach
+                }
+            
+            }
+    }
 
 
 */
