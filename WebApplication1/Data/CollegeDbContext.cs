@@ -36,7 +36,16 @@ namespace WebApplication1.Data
 
             //modelBuilder.ApplyConfiguration(new AnotherTableConfig());
             // In case if we want to add new table , we can follow the same and add another line here
+/* =============================================================================================================================================================important
+            DbSet<student> Students -> Student is one of the tables which is present as a DbSet , it is stored as Students in .NET CORE 
+            after bulding DbContext, we can start querying the database using LINQ queries
+            
 
+        
+
+
+
+*/
 
 
 
@@ -56,4 +65,5 @@ namespace WebApplication1.Data
 
     }
 }
-// basically we are registering all the database tables in this file 
+// basically we are registering all the database tables in this file  
+
