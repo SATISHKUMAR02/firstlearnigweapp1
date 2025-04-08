@@ -42,13 +42,15 @@ namespace WebApplication1.Services
         public async Task<bool> UpdateUserAsync(UserDto dto)
         {
             ArgumentNullException.ThrowIfNull(dto,nameof(dto));
+            // to update any data from the database , we first need to fetch the existing data from the database
             var existinguser = await _userRepository.GetAsync(u => u.Id == dto.Id, true);
             if(existinguser == null)
             {
                 throw new Exception($"user not found");
             }
             var usertoUpdate = _mapper.Map<User>(dto);
-            usertoUpdate.DeletedDate = DateTime.Now; // this should be modified date
+            usertoUpdate.DeletedDate = DateTime.Now; // this should be modified date 
+            // change any additional details like isActive , updated by , updated date
             await _userRepository.UpdateAsync(usertoUpdate);
             return true;
         }
