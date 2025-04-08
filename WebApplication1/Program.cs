@@ -23,7 +23,8 @@ builder.Logging.AddDebug();
 // we need to mention the DBcontext that is being used by the application 
 // without these the application won't work  ============================================================================== important
 builder.Services.AddDbContext<CollegeDbContext>(options =>
-{                                                                                 
+{             
+    // we connect the DbConnection String to the appsettings.json
     options.UseSqlServer(builder.Configuration.GetConnectionString("CollegeAppDbConnection"));
     
 });
