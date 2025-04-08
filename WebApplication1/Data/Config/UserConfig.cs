@@ -7,6 +7,10 @@ namespace WebApplication1.Data.Config
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+        /*
+            this is for having configurations for Users tables 
+            basically creating properties for the tables through the entity framework core 
+        */
             builder.ToTable("Users");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();// auto increment
