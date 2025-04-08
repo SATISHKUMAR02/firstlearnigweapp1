@@ -32,7 +32,7 @@ namespace WebApplication1.Services
             existinguser.isDeleted = true;
            
             
-            await _userRepository.UpdateAsync(existinguser);
+            await _userRepository.UpdateAsync(existinguser); // DeleteAsync not Update , this just makes a attribute to false , which will not be retrived
             return true;
         }
 
@@ -48,7 +48,7 @@ namespace WebApplication1.Services
             {
                 throw new Exception($"user not found");
             }
-            var usertoUpdate = _mapper.Map<User>(dto);
+            var usertoUpdate = _mapper.Map<User>(dto); // copy all the dto from form body to usertoUpdate
             usertoUpdate.DeletedDate = DateTime.Now; // this should be modified date 
             // change any additional details like isActive , updated by , updated date
             await _userRepository.UpdateAsync(usertoUpdate);
