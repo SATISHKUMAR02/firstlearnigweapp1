@@ -2,14 +2,17 @@
 using WebApplication1.Data.Config;
 
 namespace WebApplication1.Data
-{
-    public class CollegeDbContext : DbContext
+{ 
+
+    // this class is basically like a Database in the Entity Framework
+    public class CollegeDbContext : DbContext // this is the main class from which we are inheriting
+    
     {
         public CollegeDbContext(DbContextOptions<CollegeDbContext> options ):base(options) 
         {
             
         }
-        public DbSet<Student> Students {  get; set; }
+        public DbSet<Student> Students {  get; set; } 
 
         public DbSet<Department> Departments { get; set; }
 
