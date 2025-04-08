@@ -14,7 +14,7 @@ namespace WebApplication1.Controllers
     public class UserController : ControllerBase
     {
         // private readonly IMapper _mapper;
-        // private readonly IStudentRepository _studentRepository;
+        // private readonly IStudentRepository _studentRepository; this is done in service layer of the login , which focuses on building business logic
         private ApiResponse _apiresponse;
         private readonly IUserService _userService;
         public UserController(IUserService userService)
