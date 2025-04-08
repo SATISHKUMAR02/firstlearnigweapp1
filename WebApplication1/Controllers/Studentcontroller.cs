@@ -293,14 +293,16 @@ namespace WebApplication1.Controllers
         }
 
         //PATCH
-        [HttpPatch]
+        [HttpPatch] // for performing patch operation , we need to install two packages
+        // Microsoft.AspNetCore.JsonPatch and  Microsoft.AspNetCore.Mvc.NewtonsoftJson //
+        // =====================================================================================================================very important
         [Route("{id:int}/UpdatePartially")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(401)]
-        [ProducesResponseType(403)]
+        [ProducesResponseType(403)]                                  // when performing patch we need to mentino JsonPatchDocument here
         public async Task<ActionResult<ApiResponse>> UpdateStudentPartial(int id, [FromBody] JsonPatchDocument<Student> patchDocument)
         {
             try
@@ -319,7 +321,23 @@ namespace WebApplication1.Controllers
                     return NotFound();
 
                 var curstudent = _mapper.Map<Student>(existingStudent);
-                patchDocument.ApplyTo(curstudent, ModelState);
+                patchDocument.ApplyTo(curstudent, ModelState); // ModelState object is passed so that , if any error occurs any occurs when applying/ updating 
+                // we ask modelstate to store the error and give it as a response to us
+//=====================================================================================================================================================very important
+                /*PATCH STRUCTURE
+                [
+                  { "operationType":,
+                    "path":"/studentName",
+                    "op":"replace",
+                    "from":,
+                    "value":"satish", will update satish kumar to satish 204 means success for patch operation
+                    // not 200
+                
+                  }
+                ]
+                
+                
+                */
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
@@ -332,6 +350,8 @@ namespace WebApplication1.Controllers
                 //existingStudent.Email = curstudent.Email;
                 //existingStudent.Address = curstudent.Address;
                 //existingStudent.DOB =curstudent.DOB;
+
+                                
                 // below two lines are Db lines that are included in the repository
                 //_dbContext.Students.Update(existingStudent);
                 //await _dbContext.SaveChangesAsync();
