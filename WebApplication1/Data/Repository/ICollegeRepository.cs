@@ -7,7 +7,8 @@ namespace WebApplication1.Data.Repository
         Task<List<T>> GetAllAsync();
 
         Task<List<T>>GetAllByAnyAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false);      
-
+        // useNoTracking to false meaning telling the EF Core to track the entitied from the database
+// useNoTracking says don;t track the record 
         Task<T> GetAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false);
 
        // Task<T> GetByNameAsync(Expression<Func<T, bool>> filter);
