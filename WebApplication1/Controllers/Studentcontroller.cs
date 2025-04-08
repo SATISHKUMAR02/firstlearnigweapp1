@@ -235,6 +235,7 @@ namespace WebApplication1.Controllers
                 //    DOB = model.DOB 
 
                 //}; // without auto mapper  so better to use an auto mapper
+                //always use automapper instead of manual copying
                 Student student = _mapper.Map<Student>(model);
                 // src    destination
 
