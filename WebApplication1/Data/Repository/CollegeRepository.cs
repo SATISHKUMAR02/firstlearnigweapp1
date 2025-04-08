@@ -29,6 +29,15 @@ namespace WebApplication1.Data.Repository
             return await _dbSet.ToListAsync();
 
         }
+
+        /* 
+        asNoTracking is used mostly in the update part of the operation , for ex - when I try to update a data from an existing user , I create a new user with 
+        existing user's Id and then map then map the updated details , and try to save change , if the asNoTracking() is not present , then it will throw an error 
+        because due to primary key id , the id can;t be same , so here we are basically updating by creating a new user with new user with same user ID
+
+        if we don't want to track any data from database , then use useNoTrack , by default all the data are being tracked from the database
+        ==============================================================================================================================================================================
+        */
         public async Task<T> GetAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false)
         {
             if (useNoTracking)
