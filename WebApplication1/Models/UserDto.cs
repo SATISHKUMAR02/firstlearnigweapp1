@@ -15,3 +15,12 @@
 
     }
 }
+/*
+Structure of EFC bacially an ORM
+the Database server has a database , to use this database with entity framework , we need to create DbContext for each database ,
+two database -> two DbContext 
+
+
+
+
+*/
