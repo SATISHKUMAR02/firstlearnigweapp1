@@ -68,7 +68,8 @@ builder.Services.AddSwaggerGen(
     
     );  // here is the line where JWT auth is added for swagger UI
 
-builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig)); 
+// initializing the AutoMapper configuratoins from the AutoMapperConfig
 
 builder.Services.AddTransient<IMyLogger, Logtofile>();
 builder.Services.AddTransient<IStudentRepository, StudentRepository>();
