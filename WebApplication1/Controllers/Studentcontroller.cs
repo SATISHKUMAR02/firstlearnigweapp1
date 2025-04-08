@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
 {
   
         [Route("api/sample/[controller]")]
-        [ApiController]
+        [ApiController]v// do not remove , required for validations as well
         [Authorize(AuthenticationSchemes ="LoginForLocalUsers",Roles ="Superadmin,Admin,Student")] // this line denotes that all the endpoints are secured and to access them , authentication is necessary
 
         //[EnableCors(PolicyName="AllowOnlyGoogle")] => this applies for all the methods in the StudentController
@@ -78,6 +78,13 @@ namespace WebApplication1.Controllers
 
                 // }).ToList(); // this is using LINQ method
                 //3)
+
+                //if i want to perform validations after removing the apicontroller
+                // I need to (ModelState.IsValid)
+                // ModelState is an inbuilt object which will be check is the model from the from body is valid or not 
+                // it will return message if any wrong data
+                // the above method is not preferred due to more code, 
+                // we can get the same repsonse if we add apicontroller and 
                 var students = await _studentRepository.GetAllAsync();
                 _apiresponse.data = _mapper.Map<List<Student>>(students);
                 _apiresponse.Status = true;
